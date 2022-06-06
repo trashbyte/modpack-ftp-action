@@ -1,0 +1,30 @@
+name: 'Modpack FTP Uploader'
+description: 'Download mods and push files for a modpack to a remote FTP server'
+inputs:
+  curse-api-key:
+    description: 'Curse API key'
+    required: true
+  ftp-user:
+    description: 'FTP username'
+    required: true
+  ftp-password:
+    description: 'FTP password'
+    required: true
+  ftp-host:
+    description: 'FTP host'
+    required: true
+  ftp-port:
+    description: 'FTP port'
+    required: true
+    default: 21
+  local-root:
+    description: 'Path to root of local pax repo'
+    required: true
+    default: '.'
+  remote-root:
+    description: 'Base dir of remote FTP server to upload to'
+    required: true
+    default: '/'
+runs:
+  using: 'node16'
+  main: 'dist/index.js'

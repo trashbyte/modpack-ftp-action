@@ -1,0 +1,16 @@
+{
+  "name": "modpack-ftp-action",
+  "version": "1.0.0",
+  "description": "GitHub Action to upload a pax modpack to an FTP server",
+  "main": "index.js",
+  "scripts": {},
+  "author": "trashbyte",
+  "license": "MIT",
+  "dependencies": {
+    "@actions/core": "^1.8.2",
+    "download": "^8.0.0",
+    "ftp": "^0.3.10",
+    "ftp-deploy": "^2.4.2",
+    "node-fetch": "^3.2.5"
+  }
+}
