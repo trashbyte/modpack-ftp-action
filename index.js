@@ -126,7 +126,16 @@ async function run() {
 			if (!filename) { throw 'Unexpected response: no "data.fileName" field.' }
 			
 			const url = data.data.downloadUrl
-			if (!url) { throw 'Unexpected response: no "data.downloadUrl" field.' }
+			if (!url) { 
+				if (entry.__meta && entry.__meta.server_skip === true) {
+					println(`\nserver_skip == true: Skipping download for mod ${entry.projectID}:${entry.fileID}${mod_name}`)
+				}
+				else {
+					println()
+					core.warning(`WARNING: mod ${entry.projectID}:${entry.fileID}${mod_name} has no download url available! The mod author probably needs to opt-out of CurseForge's default block-third-party-downloads behavior.`)
+				}
+				continue
+			}
 
 			print(`Checking FTP server for ${filename}... `)
 
